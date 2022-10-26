@@ -1,0 +1,27 @@
+h1{
+  font-family: monospace;
+  color: grey;
+}
+
+#nav{
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(147, 166, 123);
+}
+
+
+.player-img{
+  height: 70px;
+}
+
+.players{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.player{
+  background-color: grey;
+  margin: 20px;
+}

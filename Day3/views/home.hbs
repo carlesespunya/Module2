@@ -1,0 +1,27 @@
+
+  <h1>Home page</h1>
+  <h3>Hello {{firstName}}</h3>
+  <p>You are in {{bootcamp}}</p>
+  {{#if lastName}}
+    <p>this won't be desplayed</p>
+  {{/if}}
+
+  {{#unless lastName}}
+    <p>this will be desplayed</p>
+  {{/unless}}
+
+  <ul>
+    {{#each countries}}
+      <li>{{@index}} - {{this}}</li>
+    {{else}}
+    <p>no countries yet</p>
+    {{/each}}
+  </ul>
+  {{#with address}}
+  <p>{{street}} {{number}}</p>
+  {{/with}}
+
+
+  <h2>MVP of the year</h2>
+
+  {{> playerCard mvp}}
