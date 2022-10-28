@@ -23,9 +23,9 @@ app.get("/", async (req, res) => {
       try{
         const pokeurl = await axios.get(url)
         pokeArray.push(pokeurl.data)
-        console.log("poke added to array")
+        console.log("Poke added to array")
         if (index === 14) {
-          console.log("----------------rendering-----------------")
+          console.log("---------------- rendering -----------------")
           console.log(data)
 
           res.render("index", data)
