@@ -1,4 +1,6 @@
 const mongoose = require("mongoose")
+const Movie = require("./models/Movie.model")
+const Film = require("./models/Film.model")
 
 const MONGODB_URI = "mongodb://localhost:27017/video"
 
@@ -8,19 +10,19 @@ const video = async function() {
     console.log( `conected to ${x.connection.name}`)
     addFilm("Superbad")
     addFilm("Superman")
-    showFilms()
-    showMovies()
+    countFilms()
+    // updateFilm("Superman")
+    // deleteFilm("Superbad")
+    // showFilms()
+    // showMovies()
   } catch (err) {
     console.log(err)
   }
 }
 
-const Film = mongoose.model("Film", { title: String })
-
 const addFilm = async function(name) {
-  const film = new Film({ title: name });
   try {
-    const filmSaved = await film.save()
+    const film = await Film.create({ title: name, actors: ["Brad", "Angelina", "Leo"] });
   } catch (err){
     console.log(err)
   }
@@ -30,15 +32,42 @@ const addFilm = async function(name) {
 const showFilms = async function() {
   console.log("all the films")
   try {
-    const films = await Film.find()
+    const films = await Film.find({title: "Superman"})
     console.log(films)
   }catch (err) {
     console.log(err)
   }
 }
 
+const countFilms = async function(title) {
+  try {
+    const count = await Film.countDocuments({ title: title })
+    console.log(count)
+  } catch(err) {
+    console.log(err)
+  }
+}
 
-const Movie = mongoose.model("Movie", { title: String })
+const updateFilm = async function(title) {
+  console.log("update film:")
+  try {
+    const film = await Film.updateOne({ title: title}, {title: "Sman"})
+    console.log(film)
+    showFilms()
+  }catch (err) {
+    console.log(err)
+  }
+}
+
+const deleteFilm = async function(title) {
+  console.log("delete film:")
+  try {
+    const film = await Film.deleteMany({title: title})
+  }catch (err) {
+    console.log(err)
+  }
+}
+
 
 const showMovies = async function () {
   console.log("all the films")
