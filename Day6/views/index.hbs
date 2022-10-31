@@ -1,0 +1,14 @@
+Home page
+{{!-- {{#each products}}
+<a href="/products/{{this}}">{{this}}</a>
+{{/each}} --}}
+
+<form action="/search" method="POST">
+  <label for="city">City</label>
+  <input type="text" name="city">
+  <label for="city">Start date</label>
+  <input type="date" name="start-date">
+  <label for="city">End date</label>
+  <input type="date" name="end-date">
+  <button type="submit">Send</button>
+</form>
