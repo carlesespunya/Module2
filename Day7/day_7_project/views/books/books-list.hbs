@@ -1,0 +1,9 @@
+<h1>Books</h1>
+{{#each dbBooks}}
+  <h3>{{this.title}}</h3>
+  <a href="/books/{{_id}}">See details</a>
+  <a href="/books/{{_id}}/edit">See details</a>
+  <form action="/books/{{_id}}/delete" method="POST">
+    <button>Delete</button>
+  </form>
+{{/each}}
